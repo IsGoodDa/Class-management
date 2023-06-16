@@ -1,4 +1,4 @@
-以下是班级管理模块的 Python 代码示例：
+### 以下是班级管理模块的 Python 代码示例：
 
 
 from flask import Flask, render_template, request, redirect, url_for, flash
@@ -87,4 +87,4 @@ if __name__ == '__main__':
 
     app.run(debug=True)
     
-在这个示例中，我们使用 Flask 框架和 SQLAlchemy 作为 ORM 工具来搭建班级管理模块。其中，我们定义了一个 Student 数据库模型来存储学生信息，包括姓名、性别、班级名称、家长、老师和班长等。我们还定义了添加学生和学生列表等路由函数，并对其进行了相应的处理。最后，我们通过 app.run() 函数来启动应用程序并监听本地的 HTTP 请求。
+#### 在这个示例中，我们使用 Flask 框架和 SQLAlchemy 作为 ORM 工具来搭建班级管理模块。其中，我们定义了一个 Student 数据库模型来存储学生信息，包括姓名、性别、班级名称、家长、老师和班长等。我们还定义了添加学生和学生列表等路由函数，并对其进行了相应的处理。最后，我们通过 app.run() 函数来启动应用程序并监听本地的 HTTP 请求。
