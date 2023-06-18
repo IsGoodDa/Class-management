@@ -1,10 +1,10 @@
-# 班级管理模块是发展性测评系统中的一个重要部分，提供了对班级信息和学生组织的管理功能。用户可以方便地添加和管理班级信息，包括班级名称、学生人数等，同时可以对学生组织进行细致的管理，例如添加和删除班干部、记录学生的考勤情况等，以便更好地管理和了解班级的状态和运营情况。
+## 班级管理模块是发展性测评系统中的一个重要部分，提供了对班级信息和学生组织的管理功能。用户可以方便地添加和管理班级信息，包括班级名称、学生人数等，同时可以对学生组织进行细致的管理，例如添加和删除班干部、记录学生的考勤情况等，以便更好地管理和了解班级的状态和运营情况。
 
-# The Class Management module is an important part of the developmental assessment system, providing management functions for class information and student organization. Users can easily add and manage class information, including class name, number of students, etc., and can carefully manage student organizations, such as adding and deleting class leaders, recording students' attendance, etc., so as to better manage and understand the status and operation of the class.
+## The Class Management module is an important part of the developmental assessment system, providing management functions for class information and student organization. Users can easily add and manage class information, including class name, number of students, etc., and can carefully manage student organizations, such as adding and deleting class leaders, recording students' attendance, etc., so as to better manage and understand the status and operation of the class.
 
-#### 以下是班级管理模块的Java代码示例：
+### 以下是班级管理模块的Java代码示例：
 
-#### Here is a Java code example for the class management module:
+### Here is a Java code example for the class management module:
 
 
 from flask import Flask, render_template, request, redirect, url_for, flash
