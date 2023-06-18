@@ -4,7 +4,7 @@
 
 ### 以下是班级管理模块的Java代码示例：
 
-### Here is a Java code example for the class management module:
+## Here is a Java code example for the class management module:
 
 
 from flask import Flask, render_template, request, redirect, url_for, flash
