@@ -10,87 +10,149 @@
 package com.ruoyi.kx.controller;
 
 import com.ruoyi.common.annotation.Excel;
+
 import com.ruoyi.common.annotation.Log;
+
 import com.ruoyi.common.core.controller.BaseController;
+
 import com.ruoyi.common.core.domain.AjaxResult;
+
 import com.ruoyi.common.core.domain.entity.SysRole;
+
 import com.ruoyi.common.core.domain.entity.SysUser;
+
 import com.ruoyi.common.core.page.TableDataInfo;
+
 import com.ruoyi.common.enums.BusinessType;
+
 import com.ruoyi.common.utils.StringUtils;
+
 import com.ruoyi.common.utils.poi.ExcelUtil;
+
 import com.ruoyi.common.utils.security.Md5Utils;
+
 import com.ruoyi.kx.bean.KxStudentBean;
+
 import com.ruoyi.kx.bean.KxStudentStatusBean;
+
 import com.ruoyi.kx.bean.ScoreSort;
+
 import com.ruoyi.kx.domain.*;
+
 import com.ruoyi.kx.mapper.*;
+
 import com.ruoyi.kx.service.IKxStudentService;
+
 import com.ruoyi.system.mapper.SysUserRoleMapper;
+
 import com.ruoyi.system.service.ISysUserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.ModelMap;
+
 import org.springframework.web.bind.annotation.*;
+
 import org.springframework.web.multipart.MultipartFile;
 
+
+
 import java.lang.reflect.Field;
+
 import java.lang.reflect.InvocationHandler;
+
 import java.lang.reflect.Proxy;
+
 import java.math.BigDecimal;
+
 import java.text.DecimalFormat;
+
 import java.util.ArrayList;
+
 import java.util.List;
+
 import java.util.Map;
 
+
+
 /**
+
  * 学生信息Controller
+ * 
  *
- * @author huang
+ *
+ *  @author huang
  * @date 2023-01-14
- */
+ *
+ /
 @Controller
+
 @RequestMapping("/kx/student")
 public class KxStudentController extends BaseController {
+
     private final String prefix = "kx/student";
+    
     @Autowired
-    KxScoreRecordMapper kxScoreRecordMapper;
+   
+   KxScoreRecordMapper kxScoreRecordMapper;
     @Autowired
-    KxRateOftenMapper kxRateOftenMapper;
+  
+  KxRateOftenMapper kxRateOftenMapper;
     @Autowired
-    KxMarkMapper kxMarkMapper;
+ 
+ KxMarkMapper kxMarkMapper;
     @Autowired
-    KxStudentMapper kxStudentMapper;
+
+KxStudentMapper kxStudentMapper;
     @Autowired
+    
     private IKxStudentService kxStudentService;
-    @Autowired
+   
+   @Autowired
     private ISysUserService iSysUserService;
-    @Autowired
+  
+  @Autowired
     private KxTeacherMapper kxTeacherMapper;
-    @Autowired
+ 
+ @Autowired
     private KxClassesMapper kxClassesMapper;
+    
 
-    @Autowired
+   
+   @Autowired
     KxTimingMapper kxTimingMapper;
+    
 
-    /**
+   
+   /**
      * 查询学生信息列表
-     */
+  
+  */
     //@RequiresPermissions("kx:student:list")
-    @PostMapping("/list")
+ 
+ @PostMapping("/list")
     @ResponseBody
-    public TableDataInfo list(KxStudent kxStudent) {
+
+public TableDataInfo list(KxStudent kxStudent) {
         KxTeacher kxTeacher = kxTeacherMapper.selectKxTeacherByUserId(getUserId());
+        
         if (StringUtils.isNotNull(kxTeacher)) {
-            KxClasses kxClasses = kxClassesMapper.selectKxClassesByTeacherId(kxTeacher.getId());
+       
+       KxClasses kxClasses = kxClassesMapper.selectKxClassesByTeacherId(kxTeacher.getId());
             if (StringUtils.isNotNull(kxClasses)) {
-                kxStudent.setClassId(kxClasses.getId());
+      
+      kxStudent.setClassId(kxClasses.getId());
             }
-        }
+     
+     }
         startPage();
-        logger.info("kxStudent:{}", kxStudent.toString());
+    
+    logger.info("kxStudent:{}", kxStudent.toString());
         List<KxStudent> list = kxStudentService.selectKxStudentList(kxStudent);
-        return getDataTable(list);
+   
+   return getDataTable(list);
 
     }
 
